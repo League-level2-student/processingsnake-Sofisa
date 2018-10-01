@@ -6,29 +6,44 @@
 class Segment {
 
   //2. Create x and y member variables to hold the location of each segment.
-
-  // 3. Add a constructor with parameters to initialize each variable.
-
-
-  // 4. Add getter and setter methods for both the x and y member variables.
+int positionX = 0;
+int positionY = 0;
+Segment (int positionX, int position){
+ this.positionX = positionX;
+ this.positionY = positionY;
 }
 
-
+int getX()
+{
+  return positionX;
+}
+void setX(int x){
+  positionX = x;
+}
+int getY()
+{
+return positionY;
+}
+void setY(int y){
+  positionY = y;
+}
+// 3. Add a constructor with parameters to initialize each variable.
+  // 4. Add getter and setter methods for both the x and y member variables.
+  
+}
 // 5. Create (but do not initialize) a Segment variable to hold the head of the Snake
-
-
+Segment head;
 
 // 6. Create and initialize a String to hold the direction of your snake e.g. "up"
-
-
+String direction = "up";
 
 // 7. Create and initialize a variable to hold how many pieces of food the snake has eaten.
 // give it a value of 1 to start.
-
-
+int foodEaten = 1;
 
 // 8. Create and initialize foodX and foodY variables to hold the location of the food.
-
+int foodX = ((int)random(50)*10);
+int foodY = ((int)random(50)*10);
 // (Hint: use the random method to set both the x and y to random locations within the screen size (500 by 500).)
 
 //int foodX = ((int)random(50)*10);
@@ -38,14 +53,13 @@ class Segment {
 void setup() {
 
   // 9. Set the size of your sketch (500 by 500).
-
   size(500, 500);
-
 
   // 10. initialize your head to a new segment.
 
 
   // 11. Use the frameRate(int rate) method to set the rate to 20.
+  frameRate(20);
 }
 
 
@@ -53,8 +67,12 @@ void draw() {
 
   background(0);
 
-
   //12. Call the manageTail, drawFood, drawSnake, move, and collision methods.
+  manageTail();
+  drawFood();
+  drawSnake();
+  move();
+  collision();
 }
 
 
@@ -67,11 +85,10 @@ void drawFood() {
 //14. Draw the snake head (use a 10 by 10 rectangle)
 
 void drawSnake() {
-
+rect(10,10,10,10);
 
   //test your code
 }
-
 
 // 15. Complete the move method below.
 
